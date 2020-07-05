@@ -17,7 +17,7 @@ var io = socketio.listen(server);
 app.use(express.static(path.resolve(__dirname, 'client')));
 
 //Host the page
-server.listen(process.env.PORT || 5000, function () {
+server.listen(process.env.OPENSHIFT_NODEJS_PORT || 5000, function () {
 	var addr = server.address();
 	console.log("Server listening at", addr.address + ":" + addr.port);
 });
