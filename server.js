@@ -17,6 +17,7 @@ var io = socketio.listen(server);
 app.use(express.static(path.resolve(__dirname, 'client')));
 
 //Host the page
+// server.listen(process.env.PORT || 5000, function () {
 server.listen(process.env.OPENSHIFT_NODEJS_PORT || 8080, function () {
 	var addr = server.address();
 	console.log("Server listening at", addr.address + ":" + addr.port);
@@ -1194,7 +1195,7 @@ function runCardActions(actions, player, game) {
 		if(keep) player.addFighterCards([player.pickCharCardByPos(0, game.pickCharCards(1)[0])]);
 		else {
 			randPos = Math.floor(Math.random() * player.charCards.length);
-			player.addFighterCards_nonDestructive([player.charCards[0]]);
+			player.addFighterCards_nonDestructive([player.pickCharCardByPos(randPos, game.pickCharCards(1)[0])]);
 		}
 	}
 	if(actions.drawHandAttr) {
@@ -1203,7 +1204,7 @@ function runCardActions(actions, player, game) {
 		if(keep) player.addFighterCards([player.pickAttrCardByPos(0, game.pickAttrCards(1)[0])]);
 		else {
 			randPos = Math.floor(Math.random() * player.attrCards.length);
-			player.addFighterCards_nonDestructive([player.attrCards[0]]);
+			player.addFighterCards_nonDestructive([player.pickAttrCardByPos(randPos, game.pickAttrCards(1)[0])]);
 		}
 	}
 	if(actions.drawTwoDeckAttr) {
