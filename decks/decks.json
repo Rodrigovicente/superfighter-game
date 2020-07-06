@@ -296,7 +296,7 @@
 			{"text": "driving popemobile"},
 			{"text": "duplicate one opponent attribute"},
 			{"text": "duplicate one opponent attribute"},
-			{"text": "eliminate all attributes in this fight", "actions": {"removeAllAttr": true, "disposable": true}},
+			{"text": "eliminate all attributes in this fight", "actions": {"removeAllAttr": false, "disposable": true}},
 			{"text": "entire body is very sticky"}
 		]
 	},
